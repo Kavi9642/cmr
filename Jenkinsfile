@@ -1,9 +1,9 @@
 pipeline {
  agent any
-  stages{
-    stages("Git checkout"){
-      steps{
-        withcrendentials([gitusernamepassword(credentialsId:
+ stages{
+  stages("Git checkout"){
+   steps{
+    with
                           
                           
                           
