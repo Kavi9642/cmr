@@ -15,6 +15,16 @@ pipeline {
   stage("Building Docker image"){
    steps{
      sh "docker build -t cmr-repo/myapp:1.0 ."
+     withCredentials([string(credentialsId: 'DOCKER_HUB_CREDENTIALS', variable: 'DOCKERHUB')]) {
+     sh "docker login -u kavithasake -p ${DOCKER_HUB_CREDENTIALS}"
+     sh "docker tag cmr-repo/myapp:1.0 kavithasake/cmr:1.0"
+     sh "docker push kavithasake/cmr:1.0"
+            }
+        }
+   }
+}
+ 
+   
     
         
                         
